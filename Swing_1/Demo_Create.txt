@@ -1,0 +1,17 @@
+try{         
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection cnn = DriverManager.getConnection
+        ("jdbc:sqlserver://localhost:1433;database=Manager","sa","123"); 
+            String sql = "insert Books values (?,?,?,?)";
+            PreparedStatement ps = cnn.prepareStatement(sql);
+            ps.setInt(1, 5);
+            ps.setString(2, "NodeJS");
+            ps.setFloat(3, 5.5F);
+            ps.setInt(4, 100);
+            ps.execute();
+            cnn.close();
+            System.out.println("Insert completed.");
+        }   
+        catch(Exception ex){
+            ex.printStackTrace();
+        }         
